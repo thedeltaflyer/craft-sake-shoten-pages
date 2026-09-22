@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "craft-sake-shoten",
+  "name": "craftsakeshoten",
   "compatibility_date": "2026-09-22",
   "build": {
     "command": "npm run build:cloudflare"
