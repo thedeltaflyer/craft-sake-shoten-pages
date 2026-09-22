@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import kawasakiFront from "../assets/photos/kawasaki-front.jpg";
+import { t } from "../i18n";
+import { locations, type LocationId } from "../data/locations";
+import InstagramLink from "./InstagramLink.astro";
+import Text from "./Text.astro";
+interface Props {
+  id: LocationId;
+}
+const { id } = Astro.props;
+const shop = locations[id];
+---
+
+<section class="visit wrap section" id="visit">
+  <span id="reservation"></span>
+  <span id="yuyue"></span>
+  <div>
+    <Text as="p" k="visit" class="eyebrow" />
+    <Text as="h2" k={id} />
+    <Text as="p" k={`${id}Policy`} class="policy" />
+    <a class="button" href={shop.map} target="_blank" rel="noopener noreferrer">
+      <Text k="directions" /> <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+  <div class="visit-grid">
+    <div>
+      <Text as="h3" k="addressLabel" />
+      <p>
+        <a href={shop.map} target="_blank" rel="noopener noreferrer">
+          <Text k={`address.${id}`} />
+        </a>
+      </p>
+      <Text as="h3" k="access" />
+      <Text as="p" k={`${id}Page.access`} />
+      {id === "kawasaki" && (
+        <Image
+          class="access-photo"
+          src={kawasakiFront}
+          alt={t("kawasakiFrontAlt")}
+          data-i18n-alt="kawasakiFrontAlt"
+          widths={[320, 480, 640, 960, 1280]}
+          sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1000px) 45vw, 30vw"
+          loading="lazy"
+        />
+      )}
+    </div>
+    <div>
+      <Text as="h3" k="hours" />
+      {shop.hours.length ? (
+        <>
+          <dl class="hours">
+            {shop.hours.map((row) => (
+              <div>
+                <dt>
+                  <Text k={row.days} />
+                </dt>
+                <dd>{row.time ?? <Text k="closed" />}</dd>
+              </div>
+            ))}
+          </dl>
+          <Text as="p" k="hoursNote" />
+        </>
+      ) : (
+        <Text as="p" k="hoursPending" />
+      )}
+      <InstagramLink id={id} />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Text from "../components/Text.astro";
+---
+
+<BaseLayout page="404">
+  <section class="wrap section">
+    <p class="eyebrow">404</p>
+    <Text as="h1" k="notFound" />
+    <Text as="p" k="notFoundText" />
+    <a class="button" href="/">
+      <Text k="backHome" />
+    </a>
+  </section>
+</BaseLayout>

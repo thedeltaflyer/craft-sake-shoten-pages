@@ -1,0 +1,135 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/brand/logo.png";
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import InstagramLink from "../components/InstagramLink.astro";
+import Text from "../components/Text.astro";
+import { t } from "../i18n";
+import { site } from "../data/site";
+import { locations, type LocationId } from "../data/locations";
+import "../styles/global.css";
+interface Props {
+  page: "home" | LocationId | "404";
+}
+const { page } = Astro.props;
+const is404 = page === "404";
+const titleKey = is404 ? "notFound" : `${page}Page.title`;
+const descriptionKey = is404 ? "notFoundText" : `${page}Page.description`;
+const canonical = new URL(page === "home" ? "/" : `/${page}/`, site.origin)
+  .href;
+const shop =
+  page === "yokohama" || page === "kawasaki" ? locations[page] : null;
+const structured = shop
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BarOrPub",
+      name: `${site.name} ${t(page)}`,
+      url: canonical,
+      image: `${site.origin}/og-${page}.jpg`,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: shop.street,
+        addressLocality: shop.city,
+        addressRegion: "Kanagawa",
+        postalCode: shop.postalCode,
+        addressCountry: "JP",
+      },
+      sameAs: [shop.instagram],
+      ...(shop.openingHours.length ? { openingHours: shop.openingHours } : {}),
+    }
+  : {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: site.name,
+      url: site.origin,
+      logo: `${site.origin}/apple-touch-icon.png`,
+    };
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n={titleKey}>{t(titleKey)}</title>
+    <meta
+      name="description"
+      content={t(descriptionKey)}
+      data-i18n-content={descriptionKey}
+    />
+    {!is404 && <link rel="canonical" href={canonical} />}
+    {is404 && <meta name="robots" content="noindex" />}
+    <meta property="og:title" content={t(titleKey)} />
+    <meta property="og:description" content={t(descriptionKey)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta
+      property="og:image"
+      content={`${site.origin}/og-${is404 ? "home" : page}.jpg`}
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#102f50" />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    {!is404 && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(structured)}
+      ></script>
+    )}
+  </head>
+  <body>
+    <a class="skip" href="#main">
+      <Text k="skip" />
+    </a>
+    <header class="site-header wrap">
+      <a class="brand" href="/">
+        <Image
+          src={logo}
+          widths={[48, 64, 96, 128]}
+          sizes="(max-width: 700px) 48px, 64px"
+          format="webp"
+          width={64}
+          height={64}
+          alt={t("logoAlt")}
+          data-i18n-alt="logoAlt"
+        />
+        <span>
+          CRAFT SAKE
+          <br />
+          SHOTEN
+        </span>
+      </a>
+      <nav aria-label={t("nav")} data-i18n-aria-label="nav">
+        {(["home", "yokohama", "kawasaki"] as const).map((id) => (
+          <a
+            href={id === "home" ? "/" : `/${id}/`}
+            aria-current={page === id ? "page" : undefined}
+          >
+            <Text k={id} />
+          </a>
+        ))}
+      </nav>
+      <LanguageSwitcher />
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div>
+          <Text as="p" k="brand" class="footer-brand" />
+          <Text as="p" k="footer" />
+        </div>
+        <div class="footer-links">
+          {(["yokohama", "kawasaki"] as const).map((id) => (
+            <InstagramLink id={id} showName />
+          ))}
+        </div>
+      </div>
+    </footer>
+    <script>
+      import "../i18n/client";
+    </script>
+  </body>
+</html>

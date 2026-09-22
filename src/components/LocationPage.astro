@@ -1,0 +1,96 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import VisitDetails from "./VisitDetails.astro";
+import Text from "./Text.astro";
+import { locations, type LocationId } from "../data/locations";
+import { t } from "../i18n";
+interface Props {
+  id: LocationId;
+}
+const { id } = Astro.props;
+const shop = locations[id];
+---
+
+<BaseLayout page={id}>
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <Text as="p" k={`${id}Page.tag`} class="eyebrow" />
+      <Text as="h1" k={`${id}Page.headline`} />
+      <Text as="p" k={`${id}Page.body`} class="lede" />
+      <a class="button" href="#visit">
+        <Text k="visit" /> <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+    <div
+      class="hero-photo"
+      style={id === "kawasaki" ? "--photo-position: 65% center" : undefined}
+    >
+      <Image
+        src={shop.image}
+        alt={t(shop.alt)}
+        data-i18n-alt={shop.alt}
+        widths={[480, 800, Math.min(1200, shop.image.width)]}
+        sizes="(max-width: 700px) 100vw, 50vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+  </section>
+  <VisitDetails id={id} />
+  <section class="faq-section">
+    <div class="wrap faq-layout">
+      <div
+        class:list={[
+          "supporting-photos",
+          { "supporting-photos-kawasaki": id === "kawasaki" },
+        ]}
+      >
+        {shop.supporting.map(({ image, alt }) => (
+          <Image
+            src={image}
+            alt={t(alt)}
+            data-i18n-alt={alt}
+            width={image.width}
+            height={image.height}
+            widths={(id === "kawasaki" ? [330, 480, 660] : [400, 700]).filter(
+              (width) => width <= image.width,
+            )}
+            sizes="(max-width: 700px) calc(100vw - 36px), 40vw"
+            loading="lazy"
+          />
+        ))}
+      </div>
+      <div class="faq-copy">
+        <Text as="h2" k="faq" />
+        {[
+          ["beginnerQ", "beginnerA"],
+          ["policyQ", `${id}Policy`],
+          ["updatesQ", "updatesA"],
+        ].map(([question, answer]) => (
+          <details>
+            <Text as="summary" k={question} />
+            <Text as="p" k={answer} />
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+  {shop.gallery.length > 0 && (
+    <section class="wrap section gallery">
+      <Text as="h2" k="gallery" />
+      <div class="gallery-grid">
+        {shop.gallery.map(({ image, alt }) => (
+          <Image
+            src={image}
+            alt={t(alt)}
+            data-i18n-alt={alt}
+            widths={[400, 640, Math.min(960, image.width)]}
+            sizes="(max-width: 700px) calc(100vw - 36px), 33vw"
+            loading="lazy"
+          />
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>

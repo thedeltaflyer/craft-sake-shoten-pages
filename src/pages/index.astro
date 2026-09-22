@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LocationCard from "../components/LocationCard.astro";
+import InstagramLink from "../components/InstagramLink.astro";
+import Text from "../components/Text.astro";
+import sake from "../assets/photos/sake.webp";
+import storyPhoto from "../assets/photos/yokohama-sake.webp";
+import { t } from "../i18n";
+---
+
+<BaseLayout page="home">
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <Text as="p" k="eyebrow" class="eyebrow" />
+      <Text as="h1" k="hero" />
+      <Text as="p" k="intro" class="lede" />
+      <a class="button" href="#shops">
+        <Text k="explore" />
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+    <div class="hero-photo">
+      <Image
+        src={sake}
+        alt={t("sakeAlt")}
+        data-i18n-alt="sakeAlt"
+        widths={[480, 800, 1200]}
+        sizes="(max-width: 700px) 100vw, 50vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <span class="photo-stamp" aria-hidden="true">
+        日本酒
+        <br />
+        SAKE & PEOPLE
+      </span>
+    </div>
+  </section>
+  <section class="story section">
+    <div class="wrap story-grid">
+      <div>
+        <Text as="p" k="storyLabel" class="eyebrow" />
+        <Text as="h2" k="storyTitle" />
+      </div>
+      <div>
+        <Text as="p" k="story" />
+        <Text as="p" k="storyMore" />
+        <Text as="p" k="storyDetail" class="story-detail" />
+      </div>
+      <Image
+        class="story-photo"
+        src={storyPhoto}
+        alt={t("yokohamaSakeAlt")}
+        data-i18n-alt="yokohamaSakeAlt"
+        widths={[480, 800, 1240, 1600]}
+        sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1320px) calc(100vw - 80px), 1240px"
+        loading="lazy"
+      />
+    </div>
+  </section>
+  <section class="wrap section" id="shops">
+    <Text as="p" k="shopsLabel" class="eyebrow" />
+    <Text as="h2" k="shops" />
+    <div class="shop-grid">
+      <LocationCard id="yokohama" />
+      <LocationCard id="kawasaki" />
+    </div>
+  </section>
+  <section class="contact wrap section">
+    <div>
+      <Text as="h2" k="contact" />
+      <Text as="p" k="contactText" />
+    </div>
+    <div class="contact-links">
+      {(["yokohama", "kawasaki"] as const).map((id) => (
+        <InstagramLink id={id} showName />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .story :global(.story-detail) {
+    white-space: pre-line;
+  }
+</style>

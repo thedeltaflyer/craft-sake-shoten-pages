@@ -1,0 +1,13 @@
+---
+import { t } from "../i18n";
+interface Props {
+  k: string;
+  as?: "span" | "p" | "h1" | "h2" | "h3" | "summary";
+  class?: string;
+}
+const { k, as: Tag = "span", class: className } = Astro.props;
+---
+
+<Tag data-i18n={k} class={className}>
+  {t(k)}
+</Tag>

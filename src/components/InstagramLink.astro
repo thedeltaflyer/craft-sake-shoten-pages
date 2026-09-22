@@ -1,0 +1,36 @@
+---
+import { locations, type LocationId } from "../data/locations";
+import Text from "./Text.astro";
+import { t } from "../i18n";
+interface Props {
+  id: LocationId;
+  showName?: boolean;
+}
+const { id, showName = false } = Astro.props;
+const label = `${id}Instagram`;
+---
+
+<a
+  class="instagram-link"
+  href={locations[id].instagram}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={t(label)}
+  data-i18n-aria-label={label}
+>
+  {showName && <Text k={id} />}
+  <svg
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+  </svg>
+</a>
