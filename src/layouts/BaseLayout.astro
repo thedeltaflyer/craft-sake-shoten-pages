@@ -19,6 +19,8 @@ const canonical = new URL(page === "home" ? "/" : `/${page}/`, site.origin)
   .href;
 const shop =
   page === "yokohama" || page === "kawasaki" ? locations[page] : null;
+const sharingImage = `${site.origin}/og-${is404 ? "home" : page}.jpg`;
+const sharingImageAlt = t(shop ? shop.alt : "sakeAlt");
 const structured = shop
   ? {
       "@context": "https://schema.org",
@@ -63,11 +65,16 @@ const structured = shop
     <meta property="og:description" content={t(descriptionKey)} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta
-      property="og:image"
-      content={`${site.origin}/og-${is404 ? "home" : page}.jpg`}
-    />
+    <meta property="og:image" content={sharingImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={sharingImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={t(titleKey)} />
+    <meta name="twitter:description" content={t(descriptionKey)} />
+    <meta name="twitter:image" content={sharingImage} />
+    <meta name="twitter:image:alt" content={sharingImageAlt} />
     <meta name="theme-color" content="#102f50" />
     <link rel="icon" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
