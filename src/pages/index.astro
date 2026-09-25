@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import LocationCard from "../components/LocationCard.astro";
 import InstagramLink from "../components/InstagramLink.astro";
 import Text from "../components/Text.astro";
-import sake from "../assets/photos/sake.webp";
+import heroPhoto from "../assets/photos/kawasaki-sake.jpg";
 import storyPhoto from "../assets/photos/yokohama-sake.webp";
 import { t } from "../i18n";
 ---
@@ -22,10 +22,10 @@ import { t } from "../i18n";
     </div>
     <div class="hero-photo">
       <Image
-        src={sake}
-        alt={t("sakeAlt")}
-        data-i18n-alt="sakeAlt"
-        widths={[480, 800, 1200]}
+        src={heroPhoto}
+        alt={t("kawasakiSakeAlt")}
+        data-i18n-alt="kawasakiSakeAlt"
+        widths={[480, 660]}
         sizes="(max-width: 700px) 100vw, 50vw"
         loading="eager"
         fetchpriority="high"
