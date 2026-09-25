@@ -6,7 +6,7 @@ import InstagramLink from "../components/InstagramLink.astro";
 import Text from "../components/Text.astro";
 import kawasakiCard from "../assets/photos/kawasaki-hero.jpg";
 import heroPhoto from "../assets/photos/kawasaki-sake.jpg";
-import storyPhoto from "../assets/photos/yokohama-sake.webp";
+import storyPhoto from "../assets/photos/craft-sake-banner.webp";
 import { t } from "../i18n";
 ---
 
@@ -47,8 +47,8 @@ import { t } from "../i18n";
       <Image
         class="story-photo"
         src={storyPhoto}
-        alt={t("yokohamaSakeAlt")}
-        data-i18n-alt="yokohamaSakeAlt"
+        alt={t("craftSakeBannerAlt")}
+        data-i18n-alt="craftSakeBannerAlt"
         widths={[480, 800, 1240, 1600]}
         sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1320px) calc(100vw - 80px), 1240px"
         loading="lazy"
