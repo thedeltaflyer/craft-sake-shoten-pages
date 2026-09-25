@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import LocationCard from "../components/LocationCard.astro";
 import InstagramLink from "../components/InstagramLink.astro";
 import Text from "../components/Text.astro";
+import kawasakiCard from "../assets/photos/kawasaki-hero.jpg";
 import heroPhoto from "../assets/photos/kawasaki-sake.jpg";
 import storyPhoto from "../assets/photos/yokohama-sake.webp";
 import { t } from "../i18n";
@@ -59,7 +60,7 @@ import { t } from "../i18n";
     <Text as="h2" k="shops" />
     <div class="shop-grid">
       <LocationCard id="yokohama" />
-      <LocationCard id="kawasaki" />
+      <LocationCard id="kawasaki" image={kawasakiCard} />
     </div>
   </section>
   <section class="contact wrap section">

@@ -1,20 +1,23 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import { locations, type LocationId } from "../data/locations";
 import Text from "./Text.astro";
 interface Props {
   id: LocationId;
+  image?: ImageMetadata;
 }
 const { id } = Astro.props;
 const shop = locations[id];
+const image = Astro.props.image ?? shop.image;
 ---
 
 <article class="shop-card">
   <a class="card-image" href={`/${id}/`} tabindex="-1" aria-hidden="true">
     <Image
-      src={shop.image}
+      src={image}
       alt=""
-      widths={[400, 640, Math.min(960, shop.image.width)]}
+      widths={[400, 640, Math.min(960, image.width)]}
       sizes="(max-width: 700px) 100vw, 50vw"
       loading="lazy"
     />
