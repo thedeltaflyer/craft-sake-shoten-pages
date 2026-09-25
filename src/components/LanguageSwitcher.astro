@@ -10,16 +10,16 @@ import { t } from "../i18n";
   aria-label={t("language")}
   data-i18n-aria-label="language"
 >
-  <button type="button" lang="en" data-language="en" aria-pressed="true">
-    English
-  </button>
   <button type="button" lang="ja" data-language="ja" aria-pressed="false">
     日本語
+  </button>
+  <button type="button" lang="en" data-language="en" aria-pressed="true">
+    English
   </button>
 </div>
 <noscript>
   <p class="noscript">
-    <span lang="en">{t("noscriptEn")}</span>{" "}
-    <span lang="ja">{t("noscriptJa")}</span>
+    <span lang="ja">{t("noscriptJa")}</span>{" "}
+    <span lang="en">{t("noscriptEn")}</span>
   </p>
 </noscript>
