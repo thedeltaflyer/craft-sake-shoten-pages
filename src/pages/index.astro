@@ -4,8 +4,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import LocationCard from "../components/LocationCard.astro";
 import InstagramLink from "../components/InstagramLink.astro";
 import Text from "../components/Text.astro";
-import sake from "../assets/photos/sake.webp";
-import storyPhoto from "../assets/photos/yokohama-sake.webp";
+import kawasakiCard from "../assets/photos/kawasaki-hero.jpg";
+import heroPhoto from "../assets/photos/kawasaki-sake.jpg";
+import storyPhoto from "../assets/photos/craft-sake-banner.webp";
 import { t } from "../i18n";
 ---
 
@@ -22,19 +23,14 @@ import { t } from "../i18n";
     </div>
     <div class="hero-photo">
       <Image
-        src={sake}
-        alt={t("sakeAlt")}
-        data-i18n-alt="sakeAlt"
-        widths={[480, 800, 1200]}
+        src={heroPhoto}
+        alt={t("kawasakiSakeAlt")}
+        data-i18n-alt="kawasakiSakeAlt"
+        widths={[480, 660]}
         sizes="(max-width: 700px) 100vw, 50vw"
         loading="eager"
         fetchpriority="high"
       />
-      <span class="photo-stamp" aria-hidden="true">
-        日本酒
-        <br />
-        SAKE & PEOPLE
-      </span>
     </div>
   </section>
   <section class="story section">
@@ -51,8 +47,8 @@ import { t } from "../i18n";
       <Image
         class="story-photo"
         src={storyPhoto}
-        alt={t("yokohamaSakeAlt")}
-        data-i18n-alt="yokohamaSakeAlt"
+        alt={t("craftSakeBannerAlt")}
+        data-i18n-alt="craftSakeBannerAlt"
         widths={[480, 800, 1240, 1600]}
         sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1320px) calc(100vw - 80px), 1240px"
         loading="lazy"
@@ -64,7 +60,7 @@ import { t } from "../i18n";
     <Text as="h2" k="shops" />
     <div class="shop-grid">
       <LocationCard id="yokohama" />
-      <LocationCard id="kawasaki" />
+      <LocationCard id="kawasaki" image={kawasakiCard} />
     </div>
   </section>
   <section class="contact wrap section">

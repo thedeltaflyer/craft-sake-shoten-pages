@@ -24,10 +24,10 @@ export const locations = {
     hours: [
       { days: "tueThu", time: "17:00–22:00" },
       { days: "fri", time: "17:00–23:00" },
-      { days: "sat", time: "17:00–22:00" },
+      { days: "sat", time: "16:00–22:00" },
       { days: "sunMon", time: null },
     ],
-    openingHours: ["Tu-Th 17:00-22:00", "Fr 17:00-23:00", "Sa 17:00-22:00"],
+    openingHours: ["Tu-Th 17:00-22:00", "Fr 17:00-23:00", "Sa 16:00-22:00"],
   },
   kawasaki: {
     image: kawasaki,
@@ -42,8 +42,12 @@ export const locations = {
     postalCode: "212-8554",
     street: "1310 Omiyacho, Muza Kawasaki 1F",
     city: "Saiwai-ku, Kawasaki",
-    hours: [],
-    openingHours: [],
+    hours: [
+      { days: "tueSat", time: "18:00–23:00" },
+      { days: "sun", time: "14:00–20:00" },
+      { days: "mon", time: null },
+    ],
+    openingHours: ["Tu-Sa 18:00-23:00", "Su 14:00-20:00"],
   },
 };
 export type LocationId = keyof typeof locations;

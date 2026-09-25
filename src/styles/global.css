@@ -167,19 +167,6 @@ h3 {
   object-position: var(--photo-position, center);
   border-radius: 180px 180px 2px 2px;
 }
-.photo-stamp {
-  position: absolute;
-  bottom: 24px;
-  right: -14px;
-  background: var(--ivory);
-  color: var(--navy);
-  border: 1px solid var(--navy);
-  padding: 20px;
-  text-align: center;
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  line-height: 1.9;
-}
 .section {
   padding-block: 80px;
 }
@@ -454,9 +441,6 @@ html[lang="ja"] h2 {
   .hero-photo > img {
     height: 390px;
     border-radius: 140px 140px 2px 2px;
-  }
-  .photo-stamp {
-    right: 10px;
   }
   .section {
     padding-block: 50px;
