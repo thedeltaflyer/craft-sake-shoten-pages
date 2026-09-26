@@ -119,3 +119,34 @@ for (const file of (await walk("src")).filter((f) =>
 console.log(
   "Verified: translation parity, exactly three canonical pages, links/assets, policies, and static output.",
 );
+
+for (const route of ["", "yokohama/", "kawasaki/"]) {
+  const html = await read(`dist/${route}index.html`);
+  assert.equal((html.match(/<form /g) || []).length, 1);
+  assert.match(html, /action="\/api\/contact"/);
+  assert.match(html, /data-site-key(?:="[^"]*")?/);
+  assert.ok(html.includes(en.form.status.initial));
+  for (const topic of ["questions", "feedback", "private-reservation", "other"])
+    assert.ok(html.includes(`value="${topic}"`));
+  if (!route) {
+    assert.match(html, /<select[^>]*name="shop"[^>]*required/);
+    for (const shop of ["yokohama", "kawasaki"])
+      assert.ok(html.includes(`value="${shop}"`));
+  } else
+    assert.ok(
+      html.includes(`type="hidden" name="shop" value="${route.slice(0, -1)}"`),
+    );
+  assert.match(html, /type="submit"[^>]*disabled/);
+}
+for (const file of files.filter((f) => /\.(html|js|json|css)$/.test(f))) {
+  const output = await read(file);
+  for (const marker of [
+    "synthetic-private-recipient",
+    "synthetic-sender",
+    "synthetic-turnstile-secret",
+  ])
+    assert.ok(!output.includes(marker), `Private marker leaked into ${file}`);
+}
+console.log(
+  "Verified: contact forms, public configuration and private marker isolation.",
+);

@@ -527,3 +527,10 @@ html[lang="ja"] h2 {
     grid-template-columns: 1fr;
   }
 }
+
+.contact > * {
+  min-width: 0;
+}
+.contact .contact-links {
+  flex-wrap: wrap;
+}

@@ -24,7 +24,7 @@
   "directions": "Open directions",
   "instagram": "Latest updates on Instagram",
   "contact": "Get in touch",
-  "contactText": "For the latest selection, events & updates, or to get in touch, find us on Instagram.",
+  "contactText": "Send an inquiry with the form, or find the latest selection, events and updates on Instagram.",
   "hoursNote": "Check Instagram for special hours before visiting.",
   "hoursPending": "For current opening hours, please check the Kawasaki Instagram account before visiting.",
   "tueThu": "Tuesday–Thursday",
@@ -94,5 +94,41 @@
   "yokohamaCrowdAlt": "Guests sharing sake and conversation in the busy Yokohama bar",
   "yokohamaSelectionAlt": "A person selecting a sake bottle from the Yokohama refrigerator",
   "yokohamaSake2Alt": "Three sake bottles with illustrated and pink labels",
-  "storyDetail": "Craft Sake Shoten began in Yokohama in 2017 with a simple idea: make great sake easy to discover and share with good people. Today, our bars in Yokohama and Kawasaki bring that spirit to every glass. Our sommeliers select a wide range of styles, and the lineup changes constantly as new seasonal bottles are released.\n\nWhether you know exactly what you like or are trying sake for the first time, tell us what sounds good. We will help you find a glass you love and make you feel at home."
+  "storyDetail": "Craft Sake Shoten began in Yokohama in 2017 with a simple idea: make great sake easy to discover and share with good people. Today, our bars in Yokohama and Kawasaki bring that spirit to every glass. Our sommeliers select a wide range of styles, and the lineup changes constantly as new seasonal bottles are released.\n\nWhether you know exactly what you like or are trying sake for the first time, tell us what sounds good. We will help you find a glass you love and make you feel at home.",
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "shop": "Shop",
+    "topic": "Topic",
+    "message": "Message",
+    "choose": "Choose an option",
+    "send": "Send inquiry",
+    "retry": "Verify again",
+    "topics": {
+      "questions": "Questions",
+      "feedback": "Feedback",
+      "private-reservation": "Private Reservation",
+      "other": "Other"
+    },
+    "errors": {
+      "name": "Enter a name of 1–100 characters without line breaks.",
+      "email": "Enter one valid email address of at most 254 characters.",
+      "shop": "Choose Yokohama or Kawasaki.",
+      "topic": "Choose one of the listed topics.",
+      "message": "Enter a message of 1–5,000 characters."
+    },
+    "status": {
+      "initial": "Sending requires JavaScript and verification. You can also contact us on Instagram.",
+      "unavailable": "Sending is unavailable. Please use Instagram or try verification again.",
+      "verifying": "Please complete verification.",
+      "ready": "Verification complete. Your inquiry is ready to send.",
+      "expired": "Verification expired. Please verify again.",
+      "verification": "Verification failed. Please verify again before sending.",
+      "invalid": "Please check the indicated fields.",
+      "sending": "Sending your inquiry…",
+      "accepted": "Your inquiry was accepted. This does not confirm a reservation.",
+      "delivery": "We could not send your inquiry. Your draft is preserved. Verify again to retry, or contact us on Instagram.",
+      "uncertain": "We could not confirm whether your inquiry was sent. Your draft is preserved. Please check with us on Instagram before resending to avoid duplicates."
+    }
+  }
 }

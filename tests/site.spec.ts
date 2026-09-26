@@ -328,6 +328,12 @@ for (const failure of ["disabled", "failed"])
       await expect(page.locator("[data-language-switcher]")).toBeHidden();
       await expect(page.locator("h1")).toBeVisible();
       await checkInstagram(page, "en");
+      await expect(page.locator("[data-contact-status]")).toContainText(
+        "requires JavaScript",
+      );
+      await expect(
+        page.locator('[data-contact] [type="submit"]'),
+      ).toBeDisabled();
       if (route === "/")
         expect(
           await page.locator('[data-i18n="storyDetail"]').textContent(),
@@ -343,13 +349,19 @@ for (const failure of ["disabled", "failed"])
     await expect(page).toHaveURL(/yokohama/);
     await ctx.close();
   });
-test("requests remain local and unknown paths return 404", async ({ page }) => {
+test("requests stay local except activated Turnstile and unknown paths return 404", async ({
+  page,
+}) => {
   const requests: string[] = [];
   page.on("request", (request) => requests.push(request.url()));
   await page.goto("/");
   await expect(page.locator("[data-language-switcher]")).toBeVisible();
   expect(
-    requests.every((url) => url.startsWith("http://127.0.0.1:4321/")),
+    requests.every(
+      (url) =>
+        url.startsWith("http://127.0.0.1:4321/") ||
+        new URL(url).origin === "https://challenges.cloudflare.com",
+    ),
   ).toBe(true);
   const response = await page.goto("/does-not-exist/");
   expect(response?.status()).toBe(404);

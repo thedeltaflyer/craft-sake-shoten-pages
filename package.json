@@ -18,7 +18,9 @@
     "format": "prettier --write src scripts tests *.ts *.mjs *.json",
     "build:cloudflare": "npm run check && npm run build && npm run verify:build",
     "deploy": "wrangler deploy",
-    "deploy:check": "wrangler deploy --dry-run"
+    "deploy:check": "wrangler deploy --dry-run",
+    "test:worker": "node --experimental-strip-types --test tests/contact-worker.test.ts",
+    "dev:worker": "wrangler dev --port 8787 --local"
   },
   "dependencies": {
     "astro": "7.3.3",

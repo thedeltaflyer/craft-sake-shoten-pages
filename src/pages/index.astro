@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LocationCard from "../components/LocationCard.astro";
-import InstagramLink from "../components/InstagramLink.astro";
+import ContactForm from "../components/ContactForm.astro";
 import Text from "../components/Text.astro";
 import kawasakiCard from "../assets/photos/kawasaki-hero.jpg";
 import heroPhoto from "../assets/photos/kawasaki-sake.jpg";
@@ -68,11 +68,7 @@ import { t } from "../i18n";
       <Text as="h2" k="contact" />
       <Text as="p" k="contactText" />
     </div>
-    <div class="contact-links">
-      {(["yokohama", "kawasaki"] as const).map((id) => (
-        <InstagramLink id={id} showName />
-      ))}
-    </div>
+    <ContactForm />
   </section>
 </BaseLayout>
 

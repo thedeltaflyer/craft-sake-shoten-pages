@@ -1,0 +1,228 @@
+{
+  "date": "2026-09-26T07:43:03.654Z",
+  "conditions": "Local Astro production preview; Lighthouse default simulated mobile throttling; Chromium supplied by pinned Playwright; three sequential cold-storage runs per route/language; explicit language query selects language. Measurement failed: Chrome interstitial prevented page loads. Null metrics are unavailable, not zero scores. A diagnostic run confirmed CHROME_INTERSTITIAL_ERROR. These results do not establish release targets.",
+  "rows": [
+    {
+      "route": "/",
+      "lang": "en",
+      "samples": [
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        }
+      ],
+      "medians": {
+        "performance": null,
+        "accessibility": null,
+        "seo": null,
+        "lcp": null,
+        "cls": null
+      }
+    },
+    {
+      "route": "/",
+      "lang": "ja",
+      "samples": [
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        }
+      ],
+      "medians": {
+        "performance": null,
+        "accessibility": null,
+        "seo": null,
+        "lcp": null,
+        "cls": null
+      }
+    },
+    {
+      "route": "/yokohama/",
+      "lang": "en",
+      "samples": [
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        }
+      ],
+      "medians": {
+        "performance": null,
+        "accessibility": null,
+        "seo": null,
+        "lcp": null,
+        "cls": null
+      }
+    },
+    {
+      "route": "/yokohama/",
+      "lang": "ja",
+      "samples": [
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        }
+      ],
+      "medians": {
+        "performance": null,
+        "accessibility": null,
+        "seo": null,
+        "lcp": null,
+        "cls": null
+      }
+    },
+    {
+      "route": "/kawasaki/",
+      "lang": "en",
+      "samples": [
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        }
+      ],
+      "medians": {
+        "performance": null,
+        "accessibility": null,
+        "seo": null,
+        "lcp": null,
+        "cls": null
+      }
+    },
+    {
+      "route": "/kawasaki/",
+      "lang": "ja",
+      "samples": [
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        },
+        {
+          "performance": null,
+          "accessibility": null,
+          "seo": null,
+          "lcp": null,
+          "cls": null,
+          "error": "CHROME_INTERSTITIAL_ERROR"
+        }
+      ],
+      "medians": {
+        "performance": null,
+        "accessibility": null,
+        "seo": null,
+        "lcp": null,
+        "cls": null
+      }
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import VisitDetails from "./VisitDetails.astro";
+import ContactForm from "./ContactForm.astro";
 import Text from "./Text.astro";
 import { locations, type LocationId } from "../data/locations";
 import { t } from "../i18n";
@@ -93,4 +94,11 @@ const shop = locations[id];
       </div>
     </section>
   )}
+  <section class="contact wrap section">
+    <div>
+      <Text as="h2" k="contact" />
+      <Text as="p" k="contactText" />
+    </div>
+    <ContactForm shop={id} />
+  </section>
 </BaseLayout>

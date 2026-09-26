@@ -54,6 +54,9 @@ function render(language: Language) {
         String(button.dataset.language === language),
       ),
     );
+  document.dispatchEvent(
+    new CustomEvent("site:language-change", { detail: { language } }),
+  );
 }
 try {
   const url = new URL(location.href);
